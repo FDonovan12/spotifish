@@ -1,0 +1,298 @@
+& :where(.grid-container) {
+    --gap: clamp(1rem, 6vw, 3rem);
+    --max-content-size: 75ch;
+    --feature: minmax(0rem, 5rem);
+    --breakout: minmax(0rem, 4rem);
+    --partial-content-part: 1;
+    --partial-margin-part: 2;
+    /* --breakout-size: clamp(0.5rem, 6vw, 3rem);
+--breakout: minmax(var(--breakout-size), 1fr); */
+
+    --partial-total-part: calc(var(--partial-content-part) + var(--partial-margin-part));
+    --content: min(var(--max-content-size), 100% - calc((calc(var(--gap))) * 2));
+    /* --half-content: minmax(calc(var(--content) / 2), 3fr); */
+    /* all the fr value have to be in correspondance with var(--partial-content-part) and  var(--partial-margin-part)*/
+    /* --full fr =  --partial-content fr + --partial-margin fr |  var(--partial-content-part) ===  --partial-content fr  |  var(--partial-margin-part) ===  --partial-margin fr */
+    --full: minmax(var(--gap), 3fr);
+    --partial-content: minmax(calc(var(--content) / calc(2 * var(--partial-total-part)) * var(--partial-content-part)), 1fr);
+    --partial-margin: minmax(calc(var(--content) / calc(2 * var(--partial-total-part)) * var(--partial-margin-part)), 2fr);
+    /* --partial-content: calc(var(--content) / calc(2 * var(--partial-total-part)) * var(--partial-content-part));
+--partial-margin: calc(var(--content) / calc(2 * var(--partial-total-part)) * var(--partial-margin-part)); */
+
+    display: grid;
+    /* grid-template-columns:
+    [full-width-start] var(--full)
+    [breakout-start] var(--breakout)
+    [content-start] var(--half-content)
+    [middle]
+    var(--half-content) [content-end]
+    var(--breakout) [breakout-end]
+    var(--full) [full-width-end]; */
+    grid-template-columns:
+        [full-width-start] var(--full)
+        [breakout-start] var(--breakout)
+        [content-start] var(--partial-margin)
+        [partial-start] var(--partial-content)
+        [middle]
+        var(--partial-content) [partial-end]
+        var(--partial-margin) [content-end]
+        var(--breakout) [breakout-end]
+        var(--full) [full-width-end];
+    row-gap: var(--row-gap-container-grid);
+    row-gap: 1em;
+    /* grid-template-columns: repeat(3, 1fr); */
+    & > * > * {
+        grid-column: content;
+    }
+    & > * {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: subgrid;
+
+        /* grid-template-columns: repeat(3, 1fr); */
+    }
+    & :where(.middle-start) {
+        grid-column-start: middle;
+        padding-left: 0.5em;
+    }
+    & :where(.middle-end) {
+        grid-column-end: middle;
+        padding-right: 0.5em;
+    }
+    & :where(.partial-start) {
+        grid-column-start: partial;
+        padding-left: 0.5em;
+    }
+    & :where(.partial-end) {
+        grid-column-end: partial;
+        padding-right: 0.5em;
+    }
+    & :where(.breakout-start, .breakout) {
+        grid-column-start: breakout;
+    }
+    & :where(.breakout-end, .breakout) {
+        grid-column-end: breakout;
+    }
+    & :where(.full-width-start, .full-width) {
+        grid-column-start: full-width;
+    }
+    & :where(.full-width-end, .full-width) {
+        grid-column-end: full-width;
+    }
+}
+
+& :where(.basic-grid) {
+    --number-column: 12;
+    --gap-column: calc(0.2em * (12 / var(--number-column)));
+    grid-template-columns: repeat(var(--number-column), 1fr);
+    grid-auto-rows: 1fr;
+    align-items: center;
+    &:where(.col-1) {
+        --number-column: 1;
+    }
+    &:where(.col-2) {
+        --number-column: 2;
+    }
+    &:where(.col-3) {
+        --number-column: 3;
+    }
+    &:where(.col-4) {
+        --number-column: 4;
+    }
+    &:where(.col-5) {
+        --number-column: 5;
+    }
+    &:where(.col-6) {
+        --number-column: 6;
+    }
+    &:where(.col-7) {
+        --number-column: 7;
+    }
+    &:where(.col-8) {
+        --number-column: 8;
+    }
+    &:where(.col-9) {
+        --number-column: 9;
+    }
+    &:where(.col-10) {
+        --number-column: 10;
+    }
+    &:where(.col-11) {
+        --number-column: 11;
+    }
+    &:where(.col-12) {
+        --number-column: 12;
+    }
+}
+& :where(.auto-grid) {
+    --password: #dadada;
+    --password: #ced6ec;
+    --password: rgb(206, 214, 236);
+    display: grid;
+    --base-min-col-size: 12ch;
+    --base-max-col-size: 24ch;
+    --min-col-size: var(--base-min-col-size);
+    --max-col-size: var(--base-max-col-size);
+    --gap-column: calc(0.2em);
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-col-size), 1fr));
+    grid-auto-rows: 1fr;
+    & > * {
+        /* outline: 3px solid hsl(120, 100%, 45%); */
+        /* max-width: var(--max-col-size); */
+    }
+}
+& :where(.auto-grid),
+& :where(.basic-grid) {
+    --gap-row: 0.2em;
+    display: grid;
+    column-gap: var(--gap-column);
+    row-gap: var(--gap-row);
+
+    &:where(.gap-0, .gap-col-0) {
+        column-gap: calc(var(--gap-column) * 0);
+    }
+    &:where(.gap-1, .gap-col-1) {
+        column-gap: calc(var(--gap-column) * 1);
+    }
+    &:where(.gap-2, .gap-col-2) {
+        column-gap: calc(var(--gap-column) * 2);
+    }
+    &:where(.gap-3, .gap-col-3) {
+        column-gap: calc(var(--gap-column) * 3);
+    }
+    &:where(.gap-4, .gap-col-4) {
+        column-gap: calc(var(--gap-column) * 4);
+    }
+    &:where(.gap-5, .gap-col-5) {
+        column-gap: calc(var(--gap-column) * 5);
+    }
+
+    &:where(.gap-0, .gap-row-0) {
+        row-gap: calc(var(--gap-row) * 0);
+    }
+    &:where(.gap-1, .gap-row-1) {
+        row-gap: calc(var(--gap-row) * 1);
+    }
+    &:where(.gap-2, .gap-row-2) {
+        row-gap: calc(var(--gap-row) * 2);
+    }
+    &:where(.gap-3, .gap-row-3) {
+        row-gap: calc(var(--gap-row) * 3);
+    }
+    &:where(.gap-4, .gap-row-4) {
+        row-gap: calc(var(--gap-row) * 4);
+    }
+    &:where(.gap-5, .gap-row-5) {
+        row-gap: calc(var(--gap-row) * 5);
+    }
+
+    & > :where(.col-1) {
+        grid-column-end: span 1;
+    }
+    & > :where(.col-2) {
+        grid-column-end: span 2;
+    }
+    & > :where(.col-3) {
+        grid-column-end: span 3;
+    }
+    & > :where(.col-4) {
+        grid-column-end: span 4;
+    }
+    & > :where(.col-5) {
+        grid-column-end: span 5;
+    }
+    & > :where(.col-6) {
+        grid-column-end: span 6;
+    }
+    & > :where(.col-7) {
+        grid-column-end: span 7;
+    }
+    & > :where(.col-8) {
+        grid-column-end: span 8;
+    }
+    & > :where(.col-9) {
+        grid-column-end: span 9;
+    }
+    & > :where(.col-10) {
+        grid-column-end: span 10;
+    }
+    & > :where(.col-11) {
+        grid-column-end: span 11;
+    }
+    & > :where(.col-12) {
+        grid-column-end: span 12;
+    }
+    & > :where(.row-1) {
+        grid-row-end: span 1;
+    }
+    & > :where(.row-2) {
+        grid-row-end: span 2;
+    }
+    & > :where(.row-3) {
+        grid-row-end: span 3;
+    }
+    & > :where(.row-4) {
+        grid-row-end: span 4;
+    }
+    & > :where(.row-5) {
+        grid-row-end: span 5;
+    }
+    & > :where(.row-6) {
+        grid-row-end: span 6;
+    }
+    & > :where(.row-7) {
+        grid-row-end: span 7;
+    }
+    & > :where(.row-8) {
+        grid-row-end: span 8;
+    }
+    & > :where(.row-9) {
+        grid-row-end: span 9;
+    }
+    & > :where(.row-10) {
+        grid-row-end: span 10;
+    }
+    & > :where(.row-11) {
+        grid-row-end: span 11;
+    }
+    & > :where(.row-12) {
+        grid-row-end: span 12;
+    }
+
+    & > :where(.start-1) {
+        grid-column-start: 2;
+    }
+    & > :where(.start-2) {
+        grid-column-start: 3;
+    }
+    & > :where(.start-3) {
+        grid-column-start: 4;
+    }
+    & > :where(.start-4) {
+        grid-column-start: 5;
+    }
+    & > :where(.start-5) {
+        grid-column-start: 6;
+    }
+    & > :where(.start-6) {
+        grid-column-start: 7;
+    }
+    & > :where(.start-7) {
+        grid-column-start: 8;
+    }
+    & > :where(.start-8) {
+        grid-column-start: 9;
+    }
+    & > :where(.start-9) {
+        grid-column-start: 10;
+    }
+    & > :where(.start-10) {
+        grid-column-start: 11;
+    }
+    & > :where(.start-11) {
+        grid-column-start: 12;
+    }
+    & > :where(.start-12) {
+        grid-column-start: 13;
+    }
+}

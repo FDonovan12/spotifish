@@ -1,0 +1,202 @@
+.main-grid {
+    --column-count: 6;
+
+    display: grid;
+    column-gap: 1rem;
+    grid-template-columns: minmax(1rem, 1fr) repeat(var(--column-count), minmax(0, 10rem)) minmax(1rem, 1fr);
+    --gap: clamp(1rem, 6vw, 3rem);
+    --max-content-size: 75ch;
+    --feature: minmax(0rem, 5rem);
+    --breakout: minmax(0rem, 4rem);
+    --partial-content-part: 1;
+    --partial-margin-part: 2;
+    /* --breakout-size: clamp(0.5rem, 6vw, 3rem);
+--breakout: minmax(var(--breakout-size), 1fr); */
+
+    --partial-total-part: calc(var(--partial-content-part) + var(--partial-margin-part));
+    --content: min(var(--max-content-size), 100% - calc((calc(var(--gap))) * 2));
+    /* --half-content: minmax(calc(var(--content) / 2), 3fr); */
+    /* all the fr value have to be in correspondance with var(--partial-content-part) and  var(--partial-margin-part)*/
+    /* --full fr =  --partial-content fr + --partial-margin fr |  var(--partial-content-part) ===  --partial-content fr  |  var(--partial-margin-part) ===  --partial-margin fr */
+    --full: minmax(var(--gap), 3fr);
+    --partial-content: minmax(calc(var(--content) / calc(2 * var(--partial-total-part)) * var(--partial-content-part)), 1fr);
+    --partial-margin: minmax(calc(var(--content) / calc(2 * var(--partial-total-part)) * var(--partial-margin-part)), 2fr);
+    /* --partial-content: calc(var(--content) / calc(2 * var(--partial-total-part)) * var(--partial-content-part));
+--partial-margin: calc(var(--content) / calc(2 * var(--partial-total-part)) * var(--partial-margin-part)); */
+
+    display: grid;
+    /* grid-template-columns:
+    [full-width-start] var(--full)
+    [breakout-start] var(--breakout)
+    [content-start] var(--half-content)
+    [middle]
+    var(--half-content) [content-end]
+    var(--breakout) [breakout-end]
+    var(--full) [full-width-end]; */
+    grid-template-columns:
+        [full-width-start] var(--full)
+        [breakout-start] var(--breakout)
+        [content-start] var(--partial-margin)
+        [partial-start] var(--partial-content)
+        [middle]
+        var(--partial-content) [partial-end]
+        var(--partial-margin) [content-end]
+        var(--breakout) [breakout-end]
+        var(--full) [full-width-end];
+}
+
+.main-grid > * {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+@media (max-width: 650px) {
+    .main-grid > * > * {
+        grid-column: 2 / -2;
+    }
+}
+
+@media (min-width: 650px) {
+    .even-columns > * {
+        grid-column: span var(--col-width);
+    }
+    .even-columns > *:first-child {
+        grid-column: var(--col-start, 2) / span var(--col-width);
+    }
+    .even-columns > *:last-child {
+        grid-column: span var(--col-width) / calc(var(--col-start, 2) * -1);
+    }
+
+    .two-columns {
+        --col-width: calc(var(--column-count) / 2);
+    }
+
+    .three-columns {
+        --col-width: calc(var(--column-count) / 3);
+    }
+
+    .hero {
+        padding: 3em 0;
+    }
+
+    .hero__title {
+        grid-row: 1 / 2;
+        grid-column: 2 / 7;
+        z-index: 2;
+    }
+
+    .hero__img {
+        grid-row: 1 / span 2;
+        grid-column: 5 / -1;
+        width: 100%;
+        height: 100%;
+        max-height: 60vh;
+        object-fit: cover;
+    }
+
+    .hero__body {
+        grid-row: 2;
+        grid-column: 2 / 4;
+    }
+}
+
+.more-stuff {
+    --col-width: 2;
+    --col-start: 3;
+}
+
+.cta {
+    --col-width: 4;
+    --col-start: 3;
+}
+
+.full-split {
+    gap: 0;
+}
+
+.full-split > * {
+    --col-start: 1;
+    --col-width: 4;
+    grid-column: 1 / -1;
+}
+
+.full-split > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.6;
+    font-size: 1.125rem;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+.btn {
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: black;
+    color: white;
+    padding: 0.75em 2em;
+    border-radius: 100vmax;
+
+    &:hover {
+        background: #444;
+    }
+}
+
+.main__title {
+    font-size: clamp(3.5rem, 7vw + 1rem, 5rem);
+    text-transform: uppercase;
+    line-height: 0.9;
+    margin-bottom: 0.2em;
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 0.9;
+    text-transform: uppercase;
+}
+
+.hero {
+    padding-bottom: 3em;
+}
+
+.sales-points {
+    padding: 3rem 0;
+    background: #efefef;
+    text-align: center;
+}
+
+.more-stuff {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.cta {
+    background: #222;
+    padding: 3em 0;
+    text-align: center;
+    color: #f4f4f4;
+    column-gap: 1em;
+}
+
+.v-center {
+    display: grid;
+    align-items: center;
+    margin: 0;
+}
+
+.bg-dark {
+    background: black;
+    color: white;
+}
+.p-3 {
+    padding: 3rem;
+}

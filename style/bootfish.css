@@ -1,0 +1,52 @@
+@import url(variable.css);
+@import url(reset.css);
+@import url(layout.css);
+@import url(component.css);
+@import url(utilities.css);
+
+/* not a good idea for the moment */
+.basic-flex {
+    --base-min-col-size: 120px;
+    --base-max-col-size: 240px;
+    --min-col-size: var(--base-min-col-size);
+    --max-col-size: var(--base-max-col-size);
+    --grow: 0;
+    display: flex;
+    flex-wrap: wrap;
+    &:where(.grow) {
+        --grow: 1;
+    }
+    &:where(.small) {
+        --min-col-size: calc(var(--base-min-col-size) / 2);
+        --max-col-size: calc(var(--base-max-col-size) / 2);
+    }
+    & > * {
+        flex: calc(var(--grow)) 0 var(--min-col-size);
+        max-width: var(--max-col-size);
+        outline: 1px solid red;
+    }
+    & > .col-2 {
+        flex: calc(var(--grow) * 2) 0 calc(var(--min-col-size) * 2);
+        max-width: calc(var(--max-col-size) * 2);
+    }
+}
+.center {
+    text-align: center;
+}
+.left {
+    text-align: left;
+}
+.right {
+    text-align: right;
+}
+.d-flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.invisible {
+    visibility: hidden !important;
+}
+.d-none {
+    display: none !important;
+}

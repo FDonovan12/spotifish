@@ -1,0 +1,44 @@
+@property --primary-color {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #3bd11d;
+}
+@property --row-gap-container-grid {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 1em;
+}
+:root {
+    --spacer: 0.2em; /* affect margin padding .btn*/
+    --background-color: hsla(0, 0%, 0%, 0);
+
+    --success-color: hsl(120 100% 25%);
+    --success-color-text: hsl(0, 0%, 0%);
+
+    --danger-color: hsl(0 90% 40%);
+    --danger-color-text: hsl(0, 0%, 0%);
+
+    --warning-color: hsl(40 90% 40%);
+    --warning-color-text: hsl(0, 0%, 0%);
+
+    --light-color: rgb(230 230 230);
+    --light-color-text: rgb(37, 37, 37);
+
+    --dark-color: rgb(20 20 20);
+    --dark-color-text: rgb(245, 245, 245);
+
+    --primary-color: hsl(200, 84%, 48%);
+    --primary-color-text: hsl(0, 0%, 0%);
+
+    --secondary-color: hsl(85, 100%, 55%);
+    --secondary-color-text: hsl(0, 0%, 0%);
+    --secondary-color-dark-background: hsl(85, 100%, 25%);
+
+    --fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
+    --fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
+    --fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
+    --fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
+    --fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
+    --fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
+    --fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
+}

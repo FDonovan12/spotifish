@@ -1,0 +1,389 @@
+/* margin & padding */
+:where(.bootfish) {
+    /* child margin */
+    &:where(.bootfish) {
+        & :where(.ch-m-auto, .ch-mt-auto, .ch-my-auto) > * {
+            margin-top: auto;
+        }
+        & :where(.ch-m-0, .ch-mt-0, .ch-my-0) > * {
+            margin-top: 0;
+        }
+        & :where(.ch-m-1, .ch-mt-1, .ch-my-1) > * {
+            margin-top: calc(var(--spacer) * 1);
+        }
+        & :where(.ch-m-2, .ch-mt-2, .ch-my-2) > * {
+            margin-top: calc(var(--spacer) * 2);
+        }
+        & :where(.ch-m-3, .ch-mt-3, .ch-my-3) > * {
+            margin-top: calc(var(--spacer) * 3);
+        }
+        & :where(.ch-m-4, .ch-mt-4, .ch-my-4) > * {
+            margin-top: calc(var(--spacer) * 4);
+        }
+        & :where(.ch-m-5, .ch-mt-5, .ch-my-5) > * {
+            margin-top: calc(var(--spacer) * 5);
+        }
+
+        & :where(.ch-m-auto, .ch-mb-auto, .ch-my-auto) > * {
+            margin-bottom: auto;
+        }
+        & :where(.ch-m-0, .ch-mb-0, .ch-my-0) > * {
+            margin-bottom: 0;
+        }
+        & :where(.ch-m-1, .ch-mb-1, .ch-my-1) > * {
+            margin-bottom: calc(var(--spacer) * 1);
+        }
+        & :where(.ch-m-2, .ch-mb-2, .ch-my-2) > * {
+            margin-bottom: calc(var(--spacer) * 2);
+        }
+        & :where(.ch-m-3, .ch-mb-3, .ch-my-3) > * {
+            margin-bottom: calc(var(--spacer) * 3);
+        }
+        & :where(.ch-m-4, .ch-mb-4, .ch-my-4) > * {
+            margin-bottom: calc(var(--spacer) * 4);
+        }
+        & :where(.ch-m-5, .ch-mb-5, .ch-my-5) > * {
+            margin-bottom: calc(var(--spacer) * 5);
+        }
+
+        & :where(.ch-m-auto, .ch-ml-auto, .ch-mx-auto) > * {
+            margin-left: auto;
+        }
+        & :where(.ch-m-0, .ch-ml-0, .ch-mx-0) > * {
+            margin-left: 0;
+        }
+        & :where(.ch-m-1, .ch-ml-1, .ch-mx-1) > * {
+            margin-left: calc(var(--spacer) * 1);
+        }
+        & :where(.ch-m-2, .ch-ml-2, .ch-mx-2) > * {
+            margin-left: calc(var(--spacer) * 2);
+        }
+        & :where(.ch-m-3, .ch-ml-3, .ch-mx-3) > * {
+            margin-left: calc(var(--spacer) * 3);
+        }
+        & :where(.ch-m-4, .ch-ml-4, .ch-mx-4) > * {
+            margin-left: calc(var(--spacer) * 4);
+        }
+        & :where(.ch-m-5, .ch-ml-5, .ch-mx-5) > * {
+            margin-left: calc(var(--spacer) * 5);
+        }
+
+        & :where(.ch-m-auto, .ch-mr-auto, .ch-mx-auto) > * {
+            margin-right: auto;
+        }
+        & :where(.ch-m-0, .ch-mr-0, .ch-mx-0) > * {
+            margin-right: 0;
+        }
+        & :where(.ch-m-1, .ch-mr-1, .ch-mx-1) > * {
+            margin-right: calc(var(--spacer) * 1);
+        }
+        & :where(.ch-m-2, .ch-mr-2, .ch-mx-2) > * {
+            margin-right: calc(var(--spacer) * 2);
+        }
+        & :where(.ch-m-3, .ch-mr-3, .ch-mx-3) > * {
+            margin-right: calc(var(--spacer) * 3);
+        }
+        & :where(.ch-m-4, .ch-mr-4, .ch-mx-4) > * {
+            margin-right: calc(var(--spacer) * 4);
+        }
+        & :where(.ch-m-5, .ch-mr-5, .ch-mx-5) > * {
+            margin-right: calc(var(--spacer) * 5);
+        }
+    }
+    /* child padding */
+    &:where(.bootfish) {
+        & :where(.ch-p-0, .ch-pt-0, .ch-py-0) > * {
+            padding-top: 0;
+        }
+        & :where(.ch-p-1, .ch-pt-1, .ch-py-1) > * {
+            padding-top: calc(var(--spacer) * 1);
+        }
+        & :where(.ch-p-2, .ch-pt-2, .ch-py-2) > * {
+            padding-top: calc(var(--spacer) * 2);
+        }
+        & :where(.ch-p-3, .ch-pt-3, .ch-py-3) > * {
+            padding-top: calc(var(--spacer) * 3);
+        }
+        & :where(.ch-p-4, .ch-pt-4, .ch-py-4) > * {
+            padding-top: calc(var(--spacer) * 4);
+        }
+        & :where(.ch-p-5, .ch-pt-5, .ch-py-5) > * {
+            padding-top: calc(var(--spacer) * 5);
+        }
+
+        & :where(.ch-p-0, .ch-pb-0, .ch-py-0) > * {
+            padding-bottom: 0;
+        }
+        & :where(.ch-p-1, .ch-pb-1, .ch-py-1) > * {
+            padding-bottom: calc(var(--spacer) * 1);
+        }
+        & :where(.ch-p-2, .ch-pb-2, .ch-py-2) > * {
+            padding-bottom: calc(var(--spacer) * 2);
+        }
+        & :where(.ch-p-3, .ch-pb-3, .ch-py-3) > * {
+            padding-bottom: calc(var(--spacer) * 3);
+        }
+        & :where(.ch-p-4, .ch-pb-4, .ch-py-4) > * {
+            padding-bottom: calc(var(--spacer) * 4);
+        }
+        & :where(.ch-p-5, .ch-pb-5, .ch-py-5) > * {
+            padding-bottom: calc(var(--spacer) * 5);
+        }
+
+        & :where(.ch-p-0, .ch-pl-0, .ch-px-0) > * {
+            padding-left: 0;
+        }
+        & :where(.ch-p-1, .ch-pl-1, .ch-px-1) > * {
+            padding-left: calc(var(--spacer) * 1);
+        }
+        & :where(.ch-p-2, .ch-pl-2, .ch-px-2) > * {
+            padding-left: calc(var(--spacer) * 2);
+        }
+        & :where(.ch-p-3, .ch-pl-3, .ch-px-3) > * {
+            padding-left: calc(var(--spacer) * 3);
+        }
+        & :where(.ch-p-4, .ch-pl-4, .ch-px-4) > * {
+            padding-left: calc(var(--spacer) * 4);
+        }
+        & :where(.ch-p-5, .ch-pl-5, .ch-px-5) > * {
+            padding-left: calc(var(--spacer) * 5);
+        }
+
+        & :where(.ch-p-0, .ch-pr-0, .ch-px-0) > * {
+            padding-right: 0;
+        }
+        & :where(.ch-p-1, .ch-pr-1, .ch-px-1) > * {
+            padding-right: calc(var(--spacer) * 1);
+        }
+        & :where(.ch-p-2, .ch-pr-2, .ch-px-2) > * {
+            padding-right: calc(var(--spacer) * 2);
+        }
+        & :where(.ch-p-3, .ch-pr-3, .ch-px-3) > * {
+            padding-right: calc(var(--spacer) * 3);
+        }
+        & :where(.ch-p-4, .ch-pr-4, .ch-px-4) > * {
+            padding-right: calc(var(--spacer) * 4);
+        }
+        & :where(.ch-p-5, .ch-pr-5, .ch-px-5) > * {
+            padding-right: calc(var(--spacer) * 5);
+        }
+    }
+    /* self margin */
+    &:where(.bootfish) {
+        & :where(.m-auto, .mt-auto, .my-auto) {
+            margin-top: auto;
+        }
+        & :where(.m-0, .mt-0, .my-0) {
+            margin-top: 0;
+        }
+        & :where(.m-1, .mt-1, .my-1) {
+            margin-top: calc(var(--spacer) * 1);
+        }
+        & :where(.m-2, .mt-2, .my-2) {
+            margin-top: calc(var(--spacer) * 2);
+        }
+        & :where(.m-3, .mt-3, .my-3) {
+            margin-top: calc(var(--spacer) * 3);
+        }
+        & :where(.m-4, .mt-4, .my-4) {
+            margin-top: calc(var(--spacer) * 4);
+        }
+        & :where(.m-5, .mt-5, .my-5) {
+            margin-top: calc(var(--spacer) * 5);
+        }
+
+        & :where(.m-auto, .mb-auto, .my-auto) {
+            margin-bottom: auto;
+        }
+        & :where(.m-0, .mb-0, .my-0) {
+            margin-bottom: 0;
+        }
+        & :where(.m-1, .mb-1, .my-1) {
+            margin-bottom: calc(var(--spacer) * 1);
+        }
+        & :where(.m-2, .mb-2, .my-2) {
+            margin-bottom: calc(var(--spacer) * 2);
+        }
+        & :where(.m-3, .mb-3, .my-3) {
+            margin-bottom: calc(var(--spacer) * 3);
+        }
+        & :where(.m-4, .mb-4, .my-4) {
+            margin-bottom: calc(var(--spacer) * 4);
+        }
+        & :where(.m-5, .mb-5, .my-5) {
+            margin-bottom: calc(var(--spacer) * 5);
+        }
+
+        & :where(.m-auto, .ml-auto, .mx-auto) {
+            margin-left: auto;
+        }
+        & :where(.m-0, .ml-0, .mx-0) {
+            margin-left: 0;
+        }
+        & :where(.m-1, .ml-1, .mx-1) {
+            margin-left: calc(var(--spacer) * 1);
+        }
+        & :where(.m-2, .ml-2, .mx-2) {
+            margin-left: calc(var(--spacer) * 2);
+        }
+        & :where(.m-3, .ml-3, .mx-3) {
+            margin-left: calc(var(--spacer) * 3);
+        }
+        & :where(.m-4, .ml-4, .mx-4) {
+            margin-left: calc(var(--spacer) * 4);
+        }
+        & :where(.m-5, .ml-5, .mx-5) {
+            margin-left: calc(var(--spacer) * 5);
+        }
+
+        & :where(.m-auto, .mr-auto, .mx-auto) {
+            margin-right: auto;
+        }
+        & :where(.m-0, .mr-0, .mx-0) {
+            margin-right: 0;
+        }
+        & :where(.m-1, .mr-1, .mx-1) {
+            margin-right: calc(var(--spacer) * 1);
+        }
+        & :where(.m-2, .mr-2, .mx-2) {
+            margin-right: calc(var(--spacer) * 2);
+        }
+        & :where(.m-3, .mr-3, .mx-3) {
+            margin-right: calc(var(--spacer) * 3);
+        }
+        & :where(.m-4, .mr-4, .mx-4) {
+            margin-right: calc(var(--spacer) * 4);
+        }
+        & :where(.m-5, .mr-5, .mx-5) {
+            margin-right: calc(var(--spacer) * 5);
+        }
+    }
+    /* self padding */
+    &:where(.bootfish) {
+        & :where(.p-0, .pt-0, .py-0) {
+            padding-top: 0;
+        }
+        & :where(.p-1, .pt-1, .py-1) {
+            padding-top: calc(var(--spacer) * 1);
+        }
+        & :where(.p-2, .pt-2, .py-2) {
+            padding-top: calc(var(--spacer) * 2);
+        }
+        & :where(.p-3, .pt-3, .py-3) {
+            padding-top: calc(var(--spacer) * 3);
+        }
+        & :where(.p-4, .pt-4, .py-4) {
+            padding-top: calc(var(--spacer) * 4);
+        }
+        & :where(.p-5, .pt-5, .py-5) {
+            padding-top: calc(var(--spacer) * 5);
+        }
+
+        & :where(.p-0, .pb-0, .py-0) {
+            padding-bottom: 0;
+        }
+        & :where(.p-1, .pb-1, .py-1) {
+            padding-bottom: calc(var(--spacer) * 1);
+        }
+        & :where(.p-2, .pb-2, .py-2) {
+            padding-bottom: calc(var(--spacer) * 2);
+        }
+        & :where(.p-3, .pb-3, .py-3) {
+            padding-bottom: calc(var(--spacer) * 3);
+        }
+        & :where(.p-4, .pb-4, .py-4) {
+            padding-bottom: calc(var(--spacer) * 4);
+        }
+        & :where(.p-5, .pb-5, .py-5) {
+            padding-bottom: calc(var(--spacer) * 5);
+        }
+
+        & :where(.p-0, .pl-0, .px-0) {
+            padding-left: 0;
+        }
+        & :where(.p-1, .pl-1, .px-1) {
+            padding-left: calc(var(--spacer) * 1);
+        }
+        & :where(.p-2, .pl-2, .px-2) {
+            padding-left: calc(var(--spacer) * 2);
+        }
+        & :where(.p-3, .pl-3, .px-3) {
+            padding-left: calc(var(--spacer) * 3);
+        }
+        & :where(.p-4, .pl-4, .px-4) {
+            padding-left: calc(var(--spacer) * 4);
+        }
+        & :where(.p-5, .pl-5, .px-5) {
+            padding-left: calc(var(--spacer) * 5);
+        }
+
+        & :where(.p-0, .pr-0, .px-0) {
+            padding-right: 0;
+        }
+        & :where(.p-1, .pr-1, .px-1) {
+            padding-right: calc(var(--spacer) * 1);
+        }
+        & :where(.p-2, .pr-2, .px-2) {
+            padding-right: calc(var(--spacer) * 2);
+        }
+        & :where(.p-3, .pr-3, .px-3) {
+            padding-right: calc(var(--spacer) * 3);
+        }
+        & :where(.p-4, .pr-4, .px-4) {
+            padding-right: calc(var(--spacer) * 4);
+        }
+        & :where(.p-5, .pr-5, .px-5) {
+            padding-right: calc(var(--spacer) * 5);
+        }
+    }
+}
+:where(.bootfish) {
+    /* font size */
+    &:where(.bootfish) {
+        & :where(.fs-300, .h6) {
+            font-size: var(--fs-300);
+        }
+        & :where(.fs-400, .h5) {
+            font-size: var(--fs-400);
+        }
+        & :where(.fs-500, .h4) {
+            font-size: var(--fs-500);
+        }
+        & :where(.fs-600, .h3) {
+            font-size: var(--fs-600);
+        }
+        & :where(.fs-700, .h2) {
+            font-size: var(--fs-700);
+        }
+        & :where(.fs-800, .h1) {
+            font-size: var(--fs-800);
+        }
+        & :where(.fs-900) {
+            font-size: var(--fs-900);
+        }
+    }
+    /* font weight */
+    &:where(.bootfish) {
+        & :where(.fw-300, .h6) {
+            font-weight: 300;
+        }
+        & :where(.fw-400, .h5) {
+            font-weight: 400;
+        }
+        & :where(.fw-500, .h4) {
+            font-weight: 500;
+        }
+        & :where(.fw-600, .h3) {
+            font-weight: 600;
+        }
+        & :where(.fw-700, .h2) {
+            font-weight: 700;
+        }
+        & :where(.fw-800, .h1) {
+            font-weight: 800;
+        }
+        & :where(.fw-900) {
+            font-weight: 900;
+        }
+    }
+}

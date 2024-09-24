@@ -1,0 +1,127 @@
+:where(.bootfish) {
+    /* --color-box: hsl(from red h s l); */
+    /* --color-box: blue; */
+    & :where([class*='btn-group'] > *, [class*='btn']:not(*[class*='btn-group'])) {
+        --_border-size: 0.1em;
+        --_border-radius: 0.4em;
+        --_scale-button: 1.1;
+        --_color-box: hsl(from var(--_color) h s l / 1);
+        --_color: red;
+
+        color: var(--_text);
+        border: solid var(--_color-box) var(--_border-size);
+        border-radius: var(--_border-radius);
+        background-color: var(--_color);
+        padding: var(--spacer);
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        transition: color 300ms ease-in-out, background-color 300ms ease-in-out, scale ease-in-out 300ms, filter ease-in-out 300ms,
+            opacity ease-in-out 300ms;
+        &:where(.btn-outline, .btn-group-outline > *) {
+            --_color: var(--dark-color);
+            --_text: var(--dark-color-text);
+        }
+        &:where(.btn, .btn-group > *) {
+            --_color: hsl(0 0 0 / 0.6);
+        }
+        &:is([class*='btn-primary']),
+        &:where([class*='btn-primary'], [class*='btn-group-primary'] > *) {
+            --_color: var(--primary-color);
+            --_text: var(--primary-color-text);
+        }
+        &:is([class*='btn-secondary']),
+        &:where([class*='btn-secondary'], [class*='btn-group-secondary'] > *) {
+            --_color: var(--secondary-color);
+            --_text: var(--secondary-color-text);
+        }
+        &:is([class*='btn-warning']),
+        &:where([class*='btn-warning'], [class*='btn-group-warning'] > *) {
+            --_color: var(--warning-color);
+            --_text: var(--warning-color-text);
+        }
+        &:is([class*='btn-success']),
+        &:where([class*='btn-success'], [class*='btn-group-success'] > *) {
+            --_color: var(--success-color);
+            --_text: var(--success-color-text);
+        }
+        &:is([class*='btn-danger']),
+        &:where([class*='btn-danger'], [class*='btn-group-danger'] > *) {
+            --_color: var(--danger-color);
+            --_text: var(--danger-color-text);
+        }
+        &:is([class*='btn-light']),
+        &:where([class*='btn-light'], [class*='btn-group-light'] > *) {
+            --_color: var(--light-color);
+            --_text: var(--light-color-text);
+        }
+        &:is([class*='btn-dark']),
+        &:where([class*='btn-light'], [class*='btn-group-dark'] > *) {
+            --_color: var(--dark-color);
+            --_text: var(--dark-color-text);
+        }
+        &:where([class*='outline'], :where([class*='outline'], [class*='btn-group-outline']) > *) {
+            --_color-box: var(--_color);
+            background-color: transparent;
+            color: var(--_color);
+            &:where(:focus:focus-visible, :hover) {
+                background-color: var(--_color);
+                color: var(--_text);
+            }
+        }
+        /* &:where(.btn, .btn-group > *) {
+            --_color-box: currentColor;
+        } */
+        &:where([class*='btn-group'].scale > *, [class*='btn-group'] > *.scale, [class*='btn']:not(*[class*='btn-group']).scale) {
+            &:where(:not(:hover)) {
+                animation: zIndexHack 100ms;
+            }
+            &:where(:focus:focus-visible, :hover) {
+                scale: var(--_scale-button);
+                z-index: 10;
+            }
+        }
+        &:where([class*='btn-group'].inline > *, [class*='btn-group'] > *.inline, [class*='btn']:not(*[class*='btn-group']).inline) {
+            &::after {
+                content: '';
+                width: calc(100% - 4 * var(--spacer));
+                outline: calc(var(--_border-size) / 2) currentColor solid;
+                position: absolute;
+                bottom: calc(var(--_border-size));
+                scale: 0 1;
+                transition: scale 300ms ease-in-out;
+            }
+            &:where(:focus:focus-visible, :hover) {
+                &::after {
+                    scale: 1 1;
+                }
+            }
+        }
+        &:where([class*='neon'], :where([class*='neon'], [class*='btn-group-neon']) > *) {
+            --_color-box: var(--_color);
+            background-color: transparent;
+            color: var(--_color);
+            box-shadow: 0 0 10px 4px var(--_color), inset 0 0 10px 4px var(--_color);
+            border-radius: 100vh;
+            &:where(:focus:focus-visible, :hover) {
+                background-color: var(--_color);
+                color: var(--_text);
+                box-shadow: 0 0 10px 10px var(--_color);
+            }
+        }
+    }
+    & :where([class*='btn-group'].blur) {
+        &:has(*:focus:focus-visible) *:not(:focus:focus-visible),
+        &:has(*:hover) *:not(:hover) {
+            filter: blur(1px);
+        }
+    }
+}
+
+@keyframes zIndexHack {
+    0%,
+    100% {
+        z-index: 100;
+    }
+}
