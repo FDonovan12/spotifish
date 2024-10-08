@@ -1556,8 +1556,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -96,
-									"top": -176,
+									"left": -88,
+									"top": -216,
 									"width": 10,
 									"height": 10
 								},
@@ -1572,8 +1572,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": -96,
-									"top": -176,
+									"left": -88,
+									"top": -216,
 									"width": 10,
 									"height": 10
 								}
